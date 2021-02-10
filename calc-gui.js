@@ -12,25 +12,16 @@ var clickNumbers = function(event) {
     var str = event.target.innerHTML;
     console.log(str);
 
-    switch(str) {
-        case "BS" :
+    if (str === "BS") {
         input.array.pop();
-        break;
-        case "+" :
-        input.array.push(" + ");
-        break;
-        case "-" :
-        input.array.push(" - ");
-        break;
-        case "*" :
-        input.array.push(" * ");
-        break;
-        case "/" :
-        input.array.push(" / ");
-        break;
-        default:
+    }
+    else if (str === "+" || str === "-" || str === "*" || str === "/") {
+        input.array.push(" " + str + " ");
+    }
+    else {
         input.array.push(str);
     }
+    
     
     if (input.array.length == 0) {
         output.text.innerHTML = "Empty";
